@@ -18,8 +18,6 @@ class LandingPage extends StatelessWidget {
       stream: auth.onAuthStateChanges,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
-          CONTACT_NUMBERS.clear();
-          getAllContacts();
           User user = snapshot.data;
           if (user == null) {
             return LoginPage.create(context);

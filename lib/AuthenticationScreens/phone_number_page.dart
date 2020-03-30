@@ -78,7 +78,7 @@ class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
-            color: Color(0xFF222222),
+            color: Color(0xFF243665),
             height: MediaQuery.of(context).size.height/2.4,
             width: MediaQuery.of(context).size.width,
             child: Column(

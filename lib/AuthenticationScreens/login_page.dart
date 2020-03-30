@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
-              color: Color(0xFF222222),
+              color: Color(0xFF243665),
               height: MediaQuery
                   .of(context)
                   .size
@@ -81,7 +81,7 @@ class LoginPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
-                      "Welcome \nto Know It..!", style: bigTitleStyle,),
+                      "Welcome \nto Pay Stream..!", style: bigTitleStyle,),
                   ),
 
                 ],

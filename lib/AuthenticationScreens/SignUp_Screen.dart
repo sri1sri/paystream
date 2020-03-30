@@ -136,7 +136,7 @@ class _F_SignUpPageState extends State<F_SignUpPage> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Container(
-          color: Color(0xFF222222),
+          color: Color(0xFF243665),
           height: MediaQuery.of(context).size.height / 2.4,
           width: MediaQuery.of(context).size.width,
           child: Column(
@@ -294,7 +294,7 @@ class _F_SignUpPageState extends State<F_SignUpPage> {
                         TextSpan(
                           text: ' Terms of use',
                           style: TextStyle(
-                            color: Color(0xFF71DB77),
+                            color: Color(0xFF8BD8BD),
                             fontSize: 15.0,
                             fontWeight: FontWeight.w700,
                           ),
@@ -310,7 +310,7 @@ class _F_SignUpPageState extends State<F_SignUpPage> {
                         TextSpan(
                           text: ' Privacy Policies',
                           style: TextStyle(
-                            color: Color(0xFF71DB77),
+                            color: Color(0xFF8BD8BD),
                             fontSize: 15.0,
                             fontWeight: FontWeight.w700,
                           ),

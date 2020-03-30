@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "945136206807",
+    "firebase_url": "https://paystream-57d08.firebaseio.com",
+    "project_id": "paystream-57d08",
+    "storage_bucket": "paystream-57d08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945136206807:android:0dc9ea66d79f65259f0192",
+        "android_client_info": {
+          "package_name": "com.kondasri.paystream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945136206807-cf65lkrin08rmailhk18fpnri3273poe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kondasri.paystream",
+            "certificate_hash": "f5fee4d035029e63dd033fdb8e147be38a7a2f88"
+          }
+        },
+        {
+          "client_id": "945136206807-7nqtu5u6gfvnq6p1rq2f0ge6u2a9c5r8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1Gvk3J1WeLmmIA5-dKz6FhOR9ANeuCeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945136206807-7nqtu5u6gfvnq6p1rq2f0ge6u2a9c5r8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

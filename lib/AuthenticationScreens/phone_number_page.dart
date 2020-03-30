@@ -3,14 +3,14 @@ import'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:paystream/AuthenticationScreens/Verify_Otp.dart';
-//import 'package:paystream/Models/phone_number_page_model.dart';
+import 'package:paystream/Models/phone_number_page_model.dart';
 import 'package:paystream/common_variables/app_colors.dart';
 import 'package:paystream/common_variables/app_fonts.dart';
 import 'package:paystream/common_variables/app_functions.dart';
 import 'package:paystream/common_widgets/button_widget/to_do_button.dart';
 import 'package:paystream/common_widgets/offline_widgets/offline_widget.dart';
 import 'package:paystream/common_widgets/platform_alert/platform_exception_alert_dialog.dart';
-//import 'package:paystream/firebase/auth.dart';
+import 'package:paystream/firebase/auth.dart';
 
 import 'package:provider/provider.dart';
 
@@ -18,24 +18,24 @@ class PhoneNumberPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //child: F_PhoneNumberPage.create(context),
+      child: F_PhoneNumberPage.create(context),
     );
   }
 }
 
 class F_PhoneNumberPage extends StatefulWidget {
- // F_PhoneNumberPage({@required this.model});
-//  final PhoneNumberModel model;
-//
-//  static Widget create(BuildContext context) {
-//    final AuthBase auth = Provider.of<AuthBase>(context);
-//    return ChangeNotifierProvider<PhoneNumberModel>(
-//      create: (context) => PhoneNumberModel(auth: auth),
-//      child: Consumer<PhoneNumberModel>(
-//        builder: (context, model, _) => F_PhoneNumberPage(model: model),
-//      ),
-//    );
-//  }
+  F_PhoneNumberPage({@required this.model});
+  final PhoneNumberModel model;
+
+  static Widget create(BuildContext context) {
+    final AuthBase auth = Provider.of<AuthBase>(context);
+    return ChangeNotifierProvider<PhoneNumberModel>(
+      create: (context) => PhoneNumberModel(auth: auth),
+      child: Consumer<PhoneNumberModel>(
+        builder: (context, model, _) => F_PhoneNumberPage(model: model),
+      ),
+    );
+  }
 
 
   @override
@@ -46,7 +46,7 @@ class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
 
   final TextEditingController _phoneNumberController = TextEditingController();
   final FocusNode _phoneNumberFocusNode = FocusNode();
-  //PhoneNumberModel get model => widget.model;
+  PhoneNumberModel get model => widget.model;
 
   Future<bool> didCheckPhoneNumber;
 
@@ -113,7 +113,7 @@ class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
                   obscureText: false,
                   focusNode: _phoneNumberFocusNode,
                   onEditingComplete: () => _submit(context),
-                  //onChanged: model.updatePhoneNumber,
+                  onChanged: model.updatePhoneNumber,
                   decoration: new InputDecoration(
                     prefixIcon: Icon(
                       Icons.phone,
@@ -146,7 +146,7 @@ class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
                   text: 'Get OTP',
                   textColor: subBackgroundColor,
                   backgroundColor: backgroundColor,
-                  //onPressed: model.canSubmit ? () => _submit(context) : null,
+                  onPressed: model.canSubmit ? () => _submit(context) : null,
                 ),
                 SizedBox(height: 10.0),
                 ToDoButton(
@@ -177,12 +177,12 @@ class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
         print('data=${data}'),
         if (data.documents.length == 0)
           {
-           // model.submit(),
+            model.submit(),
             GoToPage(context, OTPPage(phoneNo: _phoneNumberController.value.text, newUser: true)),
           }
         else
           {
-           // model.submit(),
+            model.submit(),
             GoToPage(context, OTPPage(phoneNo: _phoneNumberController.value.text, newUser: false)),
           }
       });

@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
 
-var backgroundColor = Color(0xFF222222);
-var subBackgroundColor = Color(0xFF71DB77);
+var backgroundColor = Color(0xFF243665);
+var subBackgroundColor = Color(0xFF8BD8BD);
 
 
-var topNavigationBackgroundColor = Color(0xFF1F4B6E);
-var bottomNavigationBackgroundColor = Colors.greenAccent;
+var topNavigationBackgroundColor = Color(0xFF243665);
+var bottomNavigationBackgroundColor = Color(0xFF8BD8BD);
 
 
 var bigTitleColor = Colors.greenAccent;
@@ -27,6 +27,6 @@ var inActiveButtonTextColor = Colors.black54;
 
 
 
-var activeButtonBackgroundColor = Color(0xFF1F4B6E);
+var activeButtonBackgroundColor = Color(0xFF243665);
 var inActiveButtonBackgroundColor = Colors.black12;
 var removeButtonBackgroundColor = Colors.deepOrange;

@@ -8,17 +8,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-//import 'package:paystream/Database_models/UserDetails.dart';
-//import 'package:paystream/Models/sign_up_model.dart';
+import 'package:paystream/Database_models/UserDetails.dart';
+import 'package:paystream/Models/sign_up_model.dart';
 import 'package:paystream/common_variables/app_colors.dart';
 import 'package:paystream/common_variables/app_fonts.dart';
 import 'package:paystream/common_variables/app_functions.dart';
 import 'package:paystream/common_widgets/button_widget/to_do_button.dart';
 import 'package:paystream/common_widgets/offline_widgets/offline_widget.dart';
 import 'package:paystream/common_widgets/platform_alert/platform_exception_alert_dialog.dart';
-//import 'package:paystream/firebase/api_path.dart';
-//import 'package:paystream/firebase/auth.dart';
-//import 'package:paystream/firebase/firestore_service.dart';
+import 'package:paystream/firebase/api_path.dart';
+import 'package:paystream/firebase/auth.dart';
+import 'package:paystream/firebase/firestore_service.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -31,27 +31,27 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //child: F_SignUpPage.create(context, phoneNo),
+      child: F_SignUpPage.create(context, phoneNo),
     );
   }
 }
 
 class F_SignUpPage extends StatefulWidget {
- // F_SignUpPage({this.model, @required this.phoneNo});
-  //final SignUpModel model;
+  F_SignUpPage({this.model, @required this.phoneNo});
+  final SignUpModel model;
   String phoneNo;
 
-//  static Widget create(BuildContext context, String phoneNo) {
-//    final AuthBase auth = Provider.of<AuthBase>(context);
-//
-//    return ChangeNotifierProvider<SignUpModel>(
-//      create: (context) => SignUpModel(auth: auth),
-//      child: Consumer<SignUpModel>(
-//        builder: (context, model, _) =>
-//            F_SignUpPage(model: model, phoneNo: phoneNo),
-//      ),
-//    );
-//  }
+  static Widget create(BuildContext context, String phoneNo) {
+    final AuthBase auth = Provider.of<AuthBase>(context);
+
+    return ChangeNotifierProvider<SignUpModel>(
+      create: (context) => SignUpModel(auth: auth),
+      child: Consumer<SignUpModel>(
+        builder: (context, model, _) =>
+            F_SignUpPage(model: model, phoneNo: phoneNo),
+      ),
+    );
+  }
 
   @override
   _F_SignUpPageState createState() => _F_SignUpPageState();
@@ -96,7 +96,7 @@ class _F_SignUpPageState extends State<F_SignUpPage> {
   final TextEditingController _usernameController = TextEditingController();
   final FocusNode _usernameFocusNode = FocusNode();
 
- // SignUpModel get model => widget.model;
+  SignUpModel get model => widget.model;
 
   @override
   void dispose() {
@@ -203,7 +203,7 @@ class _F_SignUpPageState extends State<F_SignUpPage> {
                   obscureText: false,
                   focusNode: _usernameFocusNode,
                   onEditingComplete: () => _imageUpload(),
-                 // onChanged: model.updateUsername,
+                  onChanged: model.updateUsername,
                   decoration: new InputDecoration(
                     prefixIcon: Icon(
                       Icons.account_circle,
@@ -359,7 +359,7 @@ class _F_SignUpPageState extends State<F_SignUpPage> {
           text: 'Create',
           textColor: subBackgroundColor,
           backgroundColor: backgroundColor,
-         // onPressed: model.canSubmit ? () => _imageUpload() : null,
+          onPressed: model.canSubmit ? () => _imageUpload() : null,
         ),
       );
     }
@@ -368,25 +368,25 @@ class _F_SignUpPageState extends State<F_SignUpPage> {
   Future<void> _submit(String path) async {
     try {
       FirebaseUser user = await FirebaseAuth.instance.currentUser();
-//      final employeeDetails = UserDetails(
-//        username: _usernameController.value.text,
-//        phoneNumber: '+91${widget.phoneNo}',
-//        gender: 'Not mentioned',
-//        dateOfBirth: Timestamp.fromDate(selectedDate),
-//        joinedDate: Timestamp.fromDate(DateTime.now()),
-//        latitude: '',
-//        longitude: '',
-//        userImagePath: path,
-//        totalLinks: 0,
-//        totalMedia: 0,
-//        totalReactions: 0,
-//      );
+      final employeeDetails = UserDetails(
+        username: _usernameController.value.text,
+        phoneNumber: '+91${widget.phoneNo}',
+        gender: 'Not mentioned',
+        dateOfBirth: Timestamp.fromDate(selectedDate),
+        joinedDate: Timestamp.fromDate(DateTime.now()),
+        latitude: '',
+        longitude: '',
+        userImagePath: path,
+        totalLinks: 0,
+        totalMedia: 0,
+        totalReactions: 0,
+      );
 
-//      await FirestoreService.instance.setData(
-//        path: APIPath.userDetails(user.uid),
-//        data: employeeDetails.toMap(),
-//      );
-//      GoToPage(context, LandingPage());
+      await FirestoreService.instance.setData(
+        path: APIPath.userDetails(user.uid),
+        data: employeeDetails.toMap(),
+      );
+      GoToPage(context, LandingPage());
     } on PlatformException catch (e) {
       PlatformExceptionAlertDialog(
         title: 'Something went wrong.',

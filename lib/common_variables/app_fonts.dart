@@ -3,22 +3,22 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 var bigTitleStyle = TextStyle(
-    color: Color(0xFF71DB77),
+    color: Color(0xFF8BD8BD),
     fontFamily: 'Montserrat-Light',
     fontWeight: FontWeight.w300,
     fontSize: 60.0,decoration: TextDecoration.none);
 var topNavigationBarTitleStyle = TextStyle(
-    color: Color(0xFF71DB77),
+    color: Color(0xFF8BD8BD),
     fontFamily: 'Montserrat-Regular',
     fontWeight: FontWeight.w400,
     fontSize: 34.0);
 var titleStyle = TextStyle(
-    color: Color(0xFF71DB77),
+    color: Color(0xFF8BD8BD),
     fontFamily: 'Montserrat-Regular',
     fontWeight: FontWeight.w400,
     fontSize: 23.0);
 var subTitleStyle = TextStyle(
-    color: Color(0xFF222222),
+    color: Color(0xFF243665),
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w600,
     fontSize: 18.0,decoration: TextDecoration.none);
@@ -28,13 +28,13 @@ var subTitleStyleLite = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 18.0,decoration: TextDecoration.none);
 var descriptionStyle = TextStyle(
-  color: Color(0xFF222222),
+  color: Color(0xFF243665),
   fontFamily: 'Montserrat',
   fontWeight: FontWeight.w500,
   fontSize: 15.0,decoration: TextDecoration.none,
   height: 1.5,);
 var subTitleStyleLight = TextStyle(
-    color: Color(0xFF71DB77),
+    color: Color(0xFF8BD8BD),
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w600,
     fontSize: 20.0);
@@ -57,7 +57,7 @@ var descriptionStyleLite = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 16.0);
 var descriptionStyleDark = TextStyle(
-    color: Color(0xFF222222),
+    color: Color(0xFF243665),
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w500,
     fontSize: 16.0);

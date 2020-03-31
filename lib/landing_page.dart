@@ -4,6 +4,7 @@ import 'package:paystream/AuthenticationScreens/phone_number_page.dart';
 import 'package:provider/provider.dart';
 import 'AuthenticationScreens/login_page.dart';
 //import 'HomeScreens/Home_page.dart';
+import 'HomeScreens/HomePage.dart';
 import 'common_variables/app_functions.dart';
 import 'firebase/auth.dart';
 import 'firebase/database.dart';
@@ -26,7 +27,7 @@ class LandingPage extends StatelessWidget {
             value: user,
             child: Provider<Database>(
                 create: (_) => FirestoreDatabase(uid: USER_ID = user.uid),
-                child: Container()),
+                child: HomePage()),
           );
 
         } else {

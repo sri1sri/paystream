@@ -8,15 +8,15 @@ var bigTitleStyle = TextStyle(
     fontWeight: FontWeight.w300,
     fontSize: 60.0,decoration: TextDecoration.none);
 var topNavigationBarTitleStyle = TextStyle(
-    color: Color(0xFF8BD8BD),
+    color: Color(0xFF243665),
     fontFamily: 'Montserrat-Regular',
-    fontWeight: FontWeight.w400,
-    fontSize: 34.0);
+    fontWeight: FontWeight.w700,
+    fontSize: 30.0);
 var titleStyle = TextStyle(
-    color: Color(0xFF8BD8BD),
-    fontFamily: 'Montserrat-Regular',
-    fontWeight: FontWeight.w400,
-    fontSize: 23.0);
+    color: Color(0xFF243665),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+    fontSize: 20.0);
 var subTitleStyle = TextStyle(
     color: Color(0xFF243665),
     fontFamily: 'Montserrat',
@@ -45,11 +45,11 @@ var subTitleStyleWhite = TextStyle(
     fontSize: 20.0);
 
 
-var statusTracker = TextStyle(
-    color: Color(0xFF1F4B6E),
-    fontFamily: 'Quicksand',
-    fontWeight: FontWeight.w500,
-    fontSize: 12.0);
+var priceFont = TextStyle(
+    color: Color(0xFF243665),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+    fontSize: 17.0);
 
 var descriptionStyleLite = TextStyle(
     color: Colors.white70,
@@ -72,9 +72,9 @@ var titleStylelight = TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 28.0);
 var descriptionStyleDarkBlur = TextStyle(
-    color: Colors.black.withOpacity(.5),
+    color: Colors.black,
     fontFamily: 'Montserrat',
-    fontWeight: FontWeight.w800,
+    fontWeight: FontWeight.w500,
     fontSize: 15.0);
 var descriptionStyleLiteBlur = TextStyle(
     color: Colors.white.withOpacity(.5),

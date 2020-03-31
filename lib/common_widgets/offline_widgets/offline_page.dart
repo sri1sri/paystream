@@ -25,6 +25,7 @@ class CustomOfflinePage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image(
               image: AssetImage(
@@ -33,8 +34,7 @@ class CustomOfflinePage extends StatelessWidget {
               height: 300.0,
               width: 300.0,
             ),
-            SizedBox(height: 30.0,),
-            Text('No Internet connection.\nPlease check connection!!!', style: titleStyle,)
+            Text('No Internet connection.\nPlease check connection!!', style: topNavigationBarTitleStyle,)
           ],
         ),
       ),

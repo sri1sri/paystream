@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:paystream/HomeScreens/AddGroup.dart';
+import 'package:paystream/HomeScreens/Profile.dart';
+import 'package:paystream/HomeScreens/SubscriptionPage.dart';
 import 'package:paystream/common_variables/app_colors.dart';
 import 'package:paystream/common_variables/app_fonts.dart';
 import 'package:paystream/common_widgets/offline_widgets/offline_widget.dart';
-
+import 'package:paystream/firebase/database.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class F_HomePage extends StatefulWidget {
 }
 
 class _F_HomePage extends State<F_HomePage> {
+  var database;
   int _n = 0;
   @override
   Widget build(BuildContext context) {
@@ -88,13 +91,13 @@ class _F_HomePage extends State<F_HomePage> {
                             ],
                           ),
                           onTap: () {
-//                        Navigator.push(
-//                          context,
-//                          MaterialPageRoute(
-//                            builder: (context) =>
-//                                ProfilePage( database: database ),
-//                          ),
-//                        );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ProfilePage( database: database ),
+                          ),
+                        );
                           } ),
                     )
                 ]
@@ -164,49 +167,60 @@ class _F_HomePage extends State<F_HomePage> {
 
   Widget ItemCard(String imgPath,String title,String members, String price )
   {
-    return Padding(
-      padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 10),
-      child: Container(
-        decoration:
-        BoxDecoration(
+    return GestureDetector(
+      child: Padding(
+        padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 10),
+        child: Container(
+          decoration:
+          BoxDecoration(
+              borderRadius: BorderRadius.circular( 10.0 ),
+              ),
+          child: Card(
+            child: Container(
+              height: 100,
+              color: Colors.blueGrey.withOpacity(0.1),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        child: Image(image: AssetImage(imgPath),
+                          height: 60,
+                          width: 60,
+                          ),
+                        radius: 30,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(title,style: titleStyle,),
+                          SizedBox(height: 5,),
+                          Text(members,style: descriptionStyleDarkBlur,),
+                        ],
+                      ),
+                      Text(price,style:priceFont),
+                    ],
+                  )
 
-            borderRadius: BorderRadius.circular( 10.0 ),
-            ),
-        child: Card(
-          child: Container(
-            height: 100,
-            color: Colors.blueGrey.withOpacity(0.1),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    CircleAvatar(
-                      backgroundColor: Colors.transparent,
-                      child: Image(image: AssetImage(imgPath),
-                        height: 60,
-                        width: 60,
-                        ),
-                      radius: 30,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(title,style: titleStyle,),
-                        SizedBox(height: 5,),
-                        Text(members,style: descriptionStyleDarkBlur,),
-                      ],
-                    ),
-                    Text(price,style:priceFont),
-                  ],
-                )
-
-              ],
+                ],
+              ),
             ),
           ),
         ),
       ),
+      onTap: (){
+        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                SubscriptionPage(),
+                          ),
+                        );
+
+      },
     );
   }
 }

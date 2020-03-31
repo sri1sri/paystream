@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:paystream/HomeScreens/AddGroup.dart';
 import 'package:paystream/common_variables/app_colors.dart';
 import 'package:paystream/common_variables/app_fonts.dart';
 import 'package:paystream/common_widgets/offline_widgets/offline_widget.dart';
@@ -139,7 +140,13 @@ class _F_HomePage extends State<F_HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => AddGroupPage() ),
+          );
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add,color: Color(0xFF8BD8BD),),
         backgroundColor: Color(0XFF233666),

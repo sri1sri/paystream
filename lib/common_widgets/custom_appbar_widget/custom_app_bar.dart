@@ -42,14 +42,14 @@ class CustomAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Container(
-          height: 80,
+          height: 90,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(
-                  top: 55,
+                  top: 65,
                   left: 20,
                 ),
                 child: InkWell(
@@ -60,8 +60,12 @@ class CustomAppBar extends StatelessWidget {
                 ),
               ),
               Padding(
+                padding: const EdgeInsets.only(top:65.0),
+                child: Text(primaryText,style: subTitleStyleLight,),
+              ),
+              Padding(
                 padding: EdgeInsets.only(
-                  top: 45,
+                  top: 65,
                   right: 20,
                 ),
                 child: InkWell(
@@ -74,28 +78,7 @@ class CustomAppBar extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 0, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              primaryText == null ? Container(height: 0, width: 0,): Text(
-            primaryText,
-            textAlign: TextAlign.center,
-            style: titleStyle,
-          ),
-
-              secondaryText == null ? Container(height: 0, width: 0,): Text(
-                secondaryText,
-                textAlign: TextAlign.center,
-                style: topNavigationBarTitleStyle,
-              ),
-            ],
-
-          ),
-        ),
         profile == null ? Container(height: 0,width: 0,) :profile,
-        tabBarWidget == null ? Container(height: 0,width: 0,) :tabBarWidget,
 
 
 

@@ -39,6 +39,7 @@ dependencies:
   flutter_contact: ^0.5.3
   receive_sharing_intent: ^1.3.3
   url_launcher: ^5.1.2
+  grouped_buttons: ^1.0.4
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,9 @@ flutter:
       - images/music.jpg
       - images/no_internet.png
       - images/hotstar.jpeg
+      - images/net.jpeg
+      - images/prime.png
+      - images/star.jpeg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

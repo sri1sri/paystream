@@ -65,27 +65,29 @@ class _F_HomePage extends State<F_HomePage> {
                       color: Colors.black,
                       onPressed: () {},
                     ),
-                    GestureDetector(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: <Widget>[
-                            Padding(
-                              padding:
-                              const EdgeInsets.only( bottom: 15, right: 10 ),
-                              child: CircleAvatar(
-                                child: Text(
-                                  'SV',
-                                  style: subTitleStyleLight,
+                    Padding(
+                      padding: const EdgeInsets.only(top:12.0),
+                      child: GestureDetector(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: <Widget>[
+                              Padding(
+                                padding:
+                                const EdgeInsets.only( bottom: 15, right: 10 ),
+                                child: CircleAvatar(
+                                  child: Text(
+                                    'SV',
+                                    style: subTitleStyleLight,
+                                  ),
+                                  radius: 20.0,
+                                  backgroundColor:
+                                  backgroundColor,
                                 ),
-                                radius: 19.0,
-                                backgroundColor:
-                                backgroundColor,
-                              ),
-                            )
-                          ],
-                        ),
-                        onTap: () {
+                              )
+                            ],
+                          ),
+                          onTap: () {
 //                        Navigator.push(
 //                          context,
 //                          MaterialPageRoute(
@@ -93,7 +95,8 @@ class _F_HomePage extends State<F_HomePage> {
 //                                ProfilePage( database: database ),
 //                          ),
 //                        );
-                        } )
+                          } ),
+                    )
                 ]
                 ),
               ),
@@ -133,8 +136,9 @@ class _F_HomePage extends State<F_HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ItemCard("images/hotstar.jpeg","CSK Batch","5 members","₹200 / preson"),
-              ItemCard("images/hotstar.jpeg","CSK Batch","5 members","₹200 / preson"),
-              ItemCard("images/hotstar.jpeg","CSK Batch","5 members","₹200 / preson"),
+              ItemCard("images/net.jpeg","Rock Star","3 members","₹400 / preson"),
+              ItemCard("images/star.jpeg","Rowdy Gang","4 members","₹650 / preson"),
+              ItemCard("images/prime.png","Konda Sri ","6 members","₹300 / preson"),
             ],
           ),
         ),
@@ -179,6 +183,7 @@ class _F_HomePage extends State<F_HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     CircleAvatar(
+                      backgroundColor: Colors.transparent,
                       child: Image(image: AssetImage(imgPath),
                         height: 60,
                         width: 60,

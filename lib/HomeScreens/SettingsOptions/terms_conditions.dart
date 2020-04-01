@@ -1,3 +1,4 @@
+import 'package:paystream/common_variables/app_colors.dart';
 import 'package:paystream/common_variables/app_fonts.dart';
 import 'package:paystream/common_widgets/custom_appbar_widget/custom_app_bar.dart';
 import 'package:paystream/common_widgets/offline_widgets/offline_widget.dart';
@@ -41,26 +42,22 @@ class _F_TermsAndServices extends State<F_TermsAndServices> {
   Widget _buildContent(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(130),
-        //preferredSize : Size(double.infinity, 100),
+        preferredSize: Size.fromHeight(MediaQuery.of(context).size.width/5),
         child: CustomAppBar(
           leftActionBar: Container(
-            child: Icon(
-              Icons.arrow_back,
-              size: 40,
-              color: Colors.white70,
-            ),
+            child: Icon(Icons.arrow_back_ios,color: subBackgroundColor,),
           ),
           leftAction: () {
             Navigator.pop(context, true);
           },
-          rightActionBar: null,
+          rightActionBar: Container(
+              child: Text("..........",style: TextStyle(color: backgroundColor),)
+          ),
           rightAction: () {
             print('right action bar is pressed in appbar');
           },
-          primaryText: null,
-          secondaryText: 'Terms & Conditions',
-          tabBarWidget: null,
+          primaryText: 'Terms & Conditions',
+          secondaryText: null,
         ),
       ),
       body: Container(

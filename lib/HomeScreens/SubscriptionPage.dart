@@ -73,24 +73,18 @@ class _F_SubscriptionPage extends State<F_SubscriptionPage> {
         preferredSize: Size.fromHeight(MediaQuery.of(context).size.width/5),
         child: CustomAppBar(
           leftActionBar: Container(
-            child: Text(
-              'Back',
-              style: subTitleStyleLight,
-            ),
+            child: Icon(Icons.arrow_back_ios,color: subBackgroundColor,),
           ),
           leftAction: () {
             Navigator.pop(context, true);
           },
           rightActionBar: Container(
-            child: Text(
-              'View Logs',
-              style: subTitleStyleLight,
-            ),
+            child: Icon(Icons.list,color: subBackgroundColor,),
           ),
           rightAction: () {
             print('right action bar is pressed in appbar');
           },
-          primaryText: '',
+          primaryText: 'Group Details',
           secondaryText: null,
         ),
       ),
@@ -366,7 +360,7 @@ class _F_SubscriptionPage extends State<F_SubscriptionPage> {
                         children: <Widget>[
                           Text(name,style: titleStyle,),
                           SizedBox(height: 5,),
-                          Text(paymentInfo,style: TextStyle(color: paymentInfo == 'Payment Completed' ? Colors.redAccent : Colors.green,fontFamily: 'Montserrat',
+                          Text(paymentInfo,style: TextStyle(color: paymentInfo == 'Payment Incomplete' ? Colors.redAccent : Colors.green,fontFamily: 'Montserrat',
                               fontWeight: FontWeight.w500,
                               fontSize: 15.0),),
                         ],

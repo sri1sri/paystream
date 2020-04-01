@@ -74,42 +74,26 @@ class _F_ProfilePageState extends State<F_ProfilePage> {
             debugShowCheckedModeBanner: false,
             home: new Scaffold(
               appBar: PreferredSize(
-                preferredSize: Size.fromHeight(130),
-
-                //preferredSize : Size(double.infinity, 100),
+                preferredSize: Size.fromHeight(MediaQuery.of(context).size.width/5),
                 child: CustomAppBar(
-
                   leftActionBar: Container(
-                    child: Icon(
-                      Icons.arrow_back,
-                      size: 40,
-                      color: Colors.white70,
-                    ),
+                    child: Icon(Icons.arrow_back_ios,color: subBackgroundColor,),
                   ),
                   leftAction: () {
                     Navigator.pop(context, true);
                   },
                   rightActionBar: Container(
-                    child:IconButton(
-                        icon: Icon(
-                          Icons.settings,
-                          size: 35,
-                          color: Colors.white70,
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SettingsPage() ),
-                          );
-                        }
-                    ),
+                    child: Icon(Icons.settings,color: subBackgroundColor,),
                   ),
                   rightAction: () {
-                    print('right action bar is pressed in appbar');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SettingsPage() ),
+                    );
                   },
-                  primaryText: null,
-                  secondaryText: 'Profile',
+                  primaryText: 'Profile',
+                  secondaryText: null,
                 ),
               ),
               body: SingleChildScrollView(

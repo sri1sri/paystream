@@ -22,6 +22,17 @@ class F_AddGroupPage extends StatefulWidget {
 }
 
 class _F_AddGroupPage extends State<F_AddGroupPage> {
+  List<String> F_image = [
+    "images/hotstar.jpeg",
+    "images/net.jpeg",
+    "images/prime.png",
+    "images/star.jpeg",
+    "images/hotstar.jpeg",
+    "images/net.jpeg",
+    "images/prime.png",
+    "images/star.jpeg",
+    "images/hotstar.jpeg",
+  ];
   DateTime selectedDate = DateTime.now();
   var customFormat = DateFormat("dd MMMM yyyy 'at' HH:mm:ss 'UTC+5:30'");
   var customFormat2 = DateFormat("dd MMMM yyyy");
@@ -73,19 +84,13 @@ class _F_AddGroupPage extends State<F_AddGroupPage> {
         preferredSize: Size.fromHeight(MediaQuery.of(context).size.width/5),
         child: CustomAppBar(
           leftActionBar: Container(
-            child: Text(
-              'Back',
-              style: subTitleStyleLight,
-            ),
+            child: Icon(Icons.arrow_back_ios,color: subBackgroundColor,),
           ),
           leftAction: () {
             Navigator.pop(context, true);
           },
           rightActionBar: Container(
-            child: Text(
-              'Add',
-              style: subTitleStyleLight,
-            ),
+            child: Icon(Icons.person_add,color: subBackgroundColor,),
           ),
           rightAction: () {
             print('right action bar is pressed in appbar');
@@ -110,79 +115,44 @@ class _F_AddGroupPage extends State<F_AddGroupPage> {
                           style: descriptionStyleDarkBlur
                       ),
                       SizedBox(height: 15,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            height: 80,
-                            width: 80,
-                            decoration: BoxDecoration(
+                      Container(
+                        height: 400,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              top: 10.0, bottom: 10.0, left: 10.0, right: 10.0),
+                          child: new GridView.builder(
+                            itemCount: F_image.length,
+                            gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,mainAxisSpacing: 10,crossAxisSpacing: 0
+                            ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return new GestureDetector(
+                                child:
+                                  new Card(
+                                  elevation: 0.0,
+                                  child: new Container(
+                                    decoration: BoxDecoration(
                               color: Colors.black,
                               shape: BoxShape.circle,
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.5),
-                              child: CircleAvatar(
-                                radius: 30.0,
+                                    alignment: Alignment.center,
+                                    margin: new EdgeInsets.only(
+                                        top: 5.0, bottom: 0.0, left: 0.0, right: 0.0),
+                                    child: CircleAvatar(
+                                radius: 50.0,
                                 backgroundColor: Colors.grey[200],
                                 backgroundImage:
-                                AssetImage('images/star.jpeg'),
+                                AssetImage(F_image[index],),
                               ),
-                            ),
-                          ),
-                          Container(
-                            height: 80,
-                            width: 80,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              shape: BoxShape.circle,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.5),
-                              child: CircleAvatar(
-                                radius: 30.0,
-                                backgroundColor: Colors.grey[200],
-                                backgroundImage:
-                                AssetImage('images/hotstar.jpeg'),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 80,
-                            width: 80,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              shape: BoxShape.circle,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.5),
-                              child: CircleAvatar(
-                                radius: 30.0,
-                                backgroundColor: Colors.grey[200],
-                                backgroundImage:
-                                AssetImage('images/net.jpeg'),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 80,
-                            width: 80,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              shape: BoxShape.circle,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.5),
-                              child: CircleAvatar(
-                                radius: 30.0,
-                                backgroundColor: Colors.grey[200],
-                                backgroundImage:
-                                AssetImage('images/prime.png'),
-                              ),
-                            ),
-                          ),
-                        ],
+                                  ),
+                                ),
+                                onTap: () {
 
+                                },
+                              );
+                            },
+                          ),
+                        ),
                       ),
                       SizedBox(height: 35,),
                       Text('Choose Subscription type',

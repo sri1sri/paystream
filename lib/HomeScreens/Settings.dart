@@ -1,6 +1,8 @@
 import 'package:paystream/HomeScreens/SettingsOptions/how_to_use.dart';
 import 'package:paystream/HomeScreens/SettingsOptions/privacy_policy.dart';
 import 'package:paystream/HomeScreens/SettingsOptions/terms_conditions.dart';
+import 'package:paystream/common_variables/app_colors.dart';
+import 'package:paystream/common_variables/app_fonts.dart';
 import 'package:paystream/common_widgets/custom_appbar_widget/custom_app_bar.dart';
 import 'package:paystream/common_widgets/offline_widgets/offline_widget.dart';
 import 'package:paystream/common_widgets/platform_alert/platform_alert_dialog.dart';
@@ -61,38 +63,23 @@ class _F_SettingsPageState extends State<F_SettingsPage> {
         child: Scaffold(
           backgroundColor: Colors.white,
 
-          appBar:
-          PreferredSize(
-            preferredSize: Size.fromHeight(130),
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(MediaQuery.of(context).size.width/5),
             child: CustomAppBar(
               leftActionBar: Container(
-                child: Icon(
-                  Icons.arrow_back,
-                  size: 40,
-                  color: Colors.white70,
-                ),
+                child: Icon(Icons.arrow_back_ios,color: subBackgroundColor,),
               ),
               leftAction: () {
                 Navigator.pop(context, true);
               },
-              rightActionBar: Padding(
-                padding: const EdgeInsets.only(top:15.0,),
-                child: Container(
-                    child: FlatButton(
-                      onPressed: () {
-                        print('clearing notification');
-                      },
-                      child: Text(
-                        "",
-                      ),
-                    )),
+              rightActionBar: Container(
+                child: Text(".............",style: TextStyle(color: backgroundColor),)
               ),
               rightAction: () {
                 print('right action bar is pressed in appbar');
               },
-              primaryText: null,
-              secondaryText: 'Settings',
-              tabBarWidget: null,
+              primaryText: 'Settings',
+              secondaryText: null,
             ),
           ),
           body: _buildContent( context ),
@@ -138,7 +125,7 @@ class _F_SettingsPageState extends State<F_SettingsPage> {
                       padding: const EdgeInsets.all( 0.0 ),
                       child: Ink(
                         decoration: const BoxDecoration(
-                          color: Color(0xFF222222),
+                          color: Color(0xFF243665),
                           borderRadius: BorderRadius.all( Radius.circular(
                               10 ) ),
                         ),
@@ -150,7 +137,7 @@ class _F_SettingsPageState extends State<F_SettingsPage> {
                           child: Text(
                             'Sign Out',
                             style: TextStyle(
-                              color: Color(0xFF71DB77),
+                              color: Color(0xFF8BD8BD),
                               letterSpacing: 1.5,
                               fontSize: 18.0,
                               fontWeight: FontWeight.w600,

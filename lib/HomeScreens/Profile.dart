@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:paystream/Database_models/UserDetails.dart';
 import 'package:paystream/HomeScreens/Settings.dart';
+import 'package:paystream/HomeScreens/SettingsOptions/how_to_use.dart';
+import 'package:paystream/HomeScreens/SettingsOptions/privacy_policy.dart';
+import 'package:paystream/HomeScreens/SettingsOptions/terms_conditions.dart';
 //import 'package:paystream/HomeScreens/Settings.dart';
 import 'package:paystream/common_variables/app_colors.dart';
 import 'package:paystream/common_variables/app_fonts.dart';
@@ -83,14 +86,14 @@ class _F_ProfilePageState extends State<F_ProfilePage> {
                     Navigator.pop(context, true);
                   },
                   rightActionBar: Container(
-                    child: Icon(Icons.settings,color: subBackgroundColor,),
+                    //child: Icon(Icons.settings,color: subBackgroundColor,),
                   ),
                   rightAction: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => SettingsPage() ),
-                    );
+//                    Navigator.push(
+//                      context,
+//                      MaterialPageRoute(
+//                          builder: (context) => SettingsPage() ),
+//                    );
                   },
                   primaryText: 'Profile',
                   secondaryText: null,
@@ -103,25 +106,108 @@ class _F_ProfilePageState extends State<F_ProfilePage> {
                     child: Center(
                       child: Column(
                         children: <Widget>[
-                          Center(
-                            child: (user != null ? user.userImagePath : "") != null ? CircleAvatar(
-                              radius: 50.0,
-                              backgroundColor: Colors.grey[200],
-                              backgroundImage:
-                              NetworkImage((user != null ? user.userImagePath : "")),
-                            ) : CircleAvatar(
-                              radius: 40.0,
-                              backgroundColor: Colors.grey[200],
-                            ),
+                          SizedBox(height: 20,),
+                          Row(
+                            children: <Widget>[
+                              SizedBox(width: 30,),
+                              Center(
+                                child: (user != null ? user.userImagePath : "") != null ? CircleAvatar(
+                                  radius: 50.0,
+                                  backgroundColor: Colors.grey[200],
+                                  backgroundImage:
+                                  NetworkImage((user != null ? user.userImagePath : "")),
+                                ) : CircleAvatar(
+                                  radius: 40.0,
+                                  backgroundColor: Colors.grey[200],
+                                ),
+                              ),
+                              SizedBox(width: 20,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(user != null ? user.username : 'loading...',style: subTitleStyle,),
+                                  SizedBox(height: 10,),
+                                  Text(user != null ? user.phoneNumber : 'loading...',style: highlightDescription,),
+                                  SizedBox(height: 10,),
+                                  Text("29/10/1996",style: urlTextStyle),
+                                ],
+                              ),
+                            ],
                           ),
-
-                          SizedBox(height: 10,),
-                          Text(user != null ? user.phoneNumber : 'loading...',style: descriptionStyleDarkBlur,),
-                          SizedBox(height: 10,),
-                          Text(user != null ? user.username : 'loading...',style: subTitleStyle,),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 20,),
                           Divider(
                             color: Colors.black.withOpacity(0.9),
+                          ),
+                          Column(
+                            children: <Widget>[
+                              Container(
+                                child: Padding(
+                                  padding: EdgeInsets.fromLTRB( 10,0,10,0 ),
+                                  child: Column(
+
+                                    children: <Widget>[
+                                      SizedBox( height: 5.0 ),
+                                      _reportAnIssue( ),
+                                      _howToUse( ),
+                                      _privacyPolicy( ),
+                                      _termsAndConditions( ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                child: Padding(
+                                  padding: EdgeInsets.fromLTRB( 30,20,30,20 ),
+                                  child: Column(
+
+                                    children: <Widget>[
+
+                                      RaisedButton(
+                                        onPressed: () => _confirmSignOut(context),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular( 80.0 ) ),
+                                        padding: const EdgeInsets.all( 0.0 ),
+                                        child: Ink(
+                                          decoration: const BoxDecoration(
+                                            color: Color(0xFF243665),
+                                            borderRadius: BorderRadius.all( Radius.circular(
+                                                10 ) ),
+                                          ),
+                                          child: Container(
+                                            constraints: const BoxConstraints( minWidth: 88.0,
+                                                minHeight: 50.0 ),
+                                            // min sizes for Material buttons
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              'Sign Out',
+                                              style: TextStyle(
+                                                color: Color(0xFF8BD8BD),
+                                                letterSpacing: 1.5,
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Montserrat',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox( height: 10, ),
+                                      Text(
+                                        'Version 1.0.0',
+                                        style: TextStyle(
+                                          color: Colors.black45,
+                                          fontFamily: 'Montserrat',
+                                          fontSize: 15.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+
+
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -133,6 +219,7 @@ class _F_ProfilePageState extends State<F_ProfilePage> {
           );
         }
     );
+
   }
 
   Future<void> _signOut(BuildContext context) async {
@@ -155,5 +242,217 @@ class _F_ProfilePageState extends State<F_ProfilePage> {
     if (didRequestSignOut == true) {
       _signOut(context);
     }
+  }
+
+  Widget _reportAnIssue() {
+    return Container(
+      width: double.infinity,
+      child: FlatButton(
+        onPressed: () => print( 'Report an Issue Button Pressed' ),
+        padding: EdgeInsets.all( 15.0 ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular( 0.0 ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Text( 'Report an Issue',
+                  style: TextStyle(
+                    color: Colors.black87,
+                    letterSpacing: 1.5,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                    //fontWeight: FontWeight.bold,
+                    fontFamily: 'Montserrat',
+                  ),
+                ),
+              ],
+
+            ),
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black54,
+                  size: 30,
+                ),
+              ],
+
+            ),
+
+          ],
+
+        ),
+      ),
+
+    );
+  }
+
+  Widget _privacyPolicy() {
+    return Container(
+      width: double.infinity,
+      child: FlatButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => PrivacyPolicy( ) ),
+          );
+        },
+        padding: EdgeInsets.all( 15.0 ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular( 0.0 ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Text( 'Privacy Policy',
+                  style: TextStyle(
+                    color: Colors.black87,
+                    letterSpacing: 1.5,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                    //fontWeight: FontWeight.bold,
+                    fontFamily: 'Montserrat',
+                  ),
+                ),
+              ],
+
+            ),
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black54,
+                  size: 30,
+                ),
+              ],
+
+            ),
+
+          ],
+
+        ),
+      ),
+
+    );
+  }
+
+  Widget _howToUse() {
+    return Container(
+      width: double.infinity,
+      child: FlatButton(
+
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => HowToUse( ) ),
+          );
+        },
+
+        padding: EdgeInsets.all( 15.0 ),
+
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular( 0.0 ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+
+                Text( 'How To Use',
+                  style: TextStyle(
+                    color: Colors.black87,
+                    letterSpacing: 1.5,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                    //fontWeight: FontWeight.bold,
+                    fontFamily: 'Montserrat',
+                  ),
+                ),
+              ],
+
+            ),
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black54,
+                  size: 30,
+                ),
+              ],
+
+            ),
+
+          ],
+
+        ),
+      ),
+
+    );
+  }
+
+  Widget _termsAndConditions() {
+    return Container(
+      width: double.infinity,
+      child: FlatButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => TermsAndServices( ) ),
+          );
+        },
+        padding: EdgeInsets.all( 15.0 ),
+
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular( 0.0 ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+
+                Text( 'Terms & Conditions',
+                  style: TextStyle(
+                    color: Colors.black87,
+                    letterSpacing: 1.5,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                    //fontWeight: FontWeight.bold,
+                    fontFamily: 'Montserrat',
+                  ),
+                ),
+              ],
+
+            ),
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black54,
+                  size: 30,
+                ),
+              ],
+
+            ),
+
+          ],
+
+        ),
+      ),
+
+    );
   }
 }

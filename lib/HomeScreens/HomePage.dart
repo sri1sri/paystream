@@ -7,6 +7,7 @@ import 'package:paystream/common_variables/app_colors.dart';
 import 'package:paystream/common_variables/app_fonts.dart';
 import 'package:paystream/common_widgets/offline_widgets/offline_widget.dart';
 import 'package:paystream/firebase/database.dart';
+import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,10 +25,18 @@ class F_HomePage extends StatefulWidget {
 class _F_HomePage extends State<F_HomePage> {
   var database;
   int _n = 0;
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    database = Provider.of<Database>(context, listen: false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return offlineWidget(context);
-
   }
 
   Widget offlineWidget (BuildContext context){

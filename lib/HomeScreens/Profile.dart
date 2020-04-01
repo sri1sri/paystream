@@ -15,37 +15,14 @@ import 'package:popup_menu/popup_menu.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-void customLaunch(command) async{
-  if(await canLaunch(command)){
-    await launch(command);
-
-  }else{
-    print('could not launch $command');
-  }
-}
-
-Future<void> _signOut(BuildContext context) async {
-  try {
-    final auth = Provider.of<AuthBase>(context, listen: false);
-    await auth.signOut();
-//    Navigator.of(context).pop();
-  } catch (e) {
-    print(e.toString());
-  }
-}
-
-Future<void> _confirmSignOut(BuildContext context) async {
-  final didRequestSignOut = await PlatformAlertDialog(
-    title: 'Logout',
-    content: 'Are you sure that you want to logout?',
-    defaultActionText: 'Logout',
-    cancelActionText: 'Cancel',
-  ).show(context);
-  if (didRequestSignOut == true) {
-    _signOut(context);
-  }
-}
-
+//void customLaunch(command) async{
+//  if(await canLaunch(command)){
+//    await launch(command);
+//
+//  }else{
+//    print('could not launch $command');
+//  }
+//}
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({@required this.database});
@@ -172,6 +149,27 @@ class _F_ProfilePageState extends State<F_ProfilePage> {
           );
         }
     );
+  }
 
+  Future<void> _signOut(BuildContext context) async {
+    try {
+      final auth = Provider.of<AuthBase>(context, listen: false);
+      await auth.signOut();
+//    Navigator.of(context).pop();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  Future<void> _confirmSignOut(BuildContext context) async {
+    final didRequestSignOut = await PlatformAlertDialog(
+      title: 'Logout',
+      content: 'Are you sure that you want to logout?',
+      defaultActionText: 'Logout',
+      cancelActionText: 'Cancel',
+    ).show(context);
+    if (didRequestSignOut == true) {
+      _signOut(context);
+    }
   }
 }
